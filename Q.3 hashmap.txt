@@ -1,0 +1,27 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class WordCount {
+
+    public static int countWords(String str) {
+        if (str == null || str.isEmpty()) {
+            return 0;
+        }
+
+        HashMap<String, Integer> wordCount = new HashMap<>();
+        String[] words = str.split("\\s+"); // Split based on whitespace characters
+
+        for (String word : words) {
+            wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
+        }
+
+        return wordCount.size();
+    }
+
+    public static void main(String[] args) {
+        String str = "This is a string with multiple words.";
+        int numWords = countWords(str);
+
+        System.out.println("Number of words: " + numWords);
+    }
+}
